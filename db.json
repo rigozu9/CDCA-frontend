@@ -1,0 +1,24 @@
+{
+  "clothes": [
+    {
+      "id": 1,
+      "name": "CDG junya jeans"
+    },
+    {
+      "id": 2,
+      "name": "CDG HOMME longsleeve"
+    },
+    {
+      "id": 3,
+      "name": "DOUBLET hoodie"
+    },
+    {
+      "name": "Chlesa shirt",
+      "id": 4
+    },
+    {
+      "name": "Number Nine tshirt",
+      "id": 5
+    }
+  ]
+}
