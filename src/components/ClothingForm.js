@@ -13,7 +13,6 @@ const ClothingForm = ({ clothes, setClothes, showSuccessMsg, showErrorMsg }) => 
           .create({
             name
           })
-
       setClothes(clothes.concat(clothingObject))
       showSuccessMsg(`a new piece called ${ clothingObject.name } added`)
 
