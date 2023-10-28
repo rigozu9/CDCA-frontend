@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import Clothing from './components/Clothing'
 import Notification from './components/Notification'
@@ -12,8 +12,9 @@ import clothingService from './services/clothes'
 
 
 const App = () => {
+  const clothingFormRef = useRef()
   const [clothes, setClothes] = useState([])
-  const [username, setUsername] = useState('') 
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
 
@@ -25,7 +26,7 @@ const App = () => {
   useEffect(() => {
     clothingService
       .getAll()
-        .then(clothes  => {
+      .then(clothes  => {
         setClothes(clothes)
       })
   }, [])
@@ -60,11 +61,11 @@ const App = () => {
       const user = await loginService.login({
         username, password
       })
-      
+
       window.localStorage.setItem(
         'loggedCDCAUser', JSON.stringify(user)
-      ) 
-      
+      )
+
       clothingService.setToken(user.token)
       setUser(user)
       setUsername('')
@@ -77,7 +78,7 @@ const App = () => {
   const handleLogOut = () => {
     setUser(null)
     window.localStorage.clear()
-  } 
+  }
 
   const handleUsername = ({ target }) => {
     console.log('username', target.value)
@@ -88,19 +89,19 @@ const App = () => {
     console.log('password', target.value)
     setPassword(target.value)
   }
-  
+
   const loginForm = () => {
     const hideWhenVisible = { display: loginVisible ? 'none' : '' }
     const showWhenVisible = { display: loginVisible ? '' : 'none' }
 
     return (
       <div>
-        <h1>Log in to application</h1>
+        <h1>Log in to CDCA-clothing company</h1>
         <div style={hideWhenVisible}>
           <button onClick={() => setLoginVisible(true)}>log in</button>
         </div>
         <div style={showWhenVisible}>
-          <LoginForm 
+          <LoginForm
             handleLogin={handleLogin}
             username={username}
             password={password}
@@ -113,7 +114,7 @@ const App = () => {
         </div>
         <Footer />
       </div>
-)}
+    )}
 
   const deleteClothing = async id => {
     try {
@@ -124,7 +125,7 @@ const App = () => {
       showErrorMsg(response.data.error)
     }
   }
-  
+
   const clothingForm = () => (
     <div>
       <h1>CDCA clothes</h1>
@@ -133,26 +134,27 @@ const App = () => {
         {user.name} logged in {}
         <button onClick={handleLogOut}>logout</button>
       </p>
-      <Togglable buttonLabel="add new piece">
-        <ClothingForm 
+      <Togglable buttonLabel="add new piece" cancelLabel="cancel" ref={clothingFormRef}>
+        <ClothingForm
           clothes={clothes}
           setClothes={setClothes}
           showSuccessMsg={showSuccessMsg}
           showErrorMsg={showErrorMsg}
+          clothingFormRef={clothingFormRef}
         />
       </Togglable>
       <h2>BÄNGER CLOTHES</h2>
       {clothes.map(clothing => (
-        <Clothing 
-          key={clothing.id} 
-          clothing={clothing} 
+        <Clothing
+          key={clothing.id}
+          clothing={clothing}
           deleteClothing={deleteClothing}
         />
       ))}
       <Footer />
     </div>
   )
-  
+
 
   return (
     <div>

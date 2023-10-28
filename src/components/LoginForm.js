@@ -1,4 +1,4 @@
-import Notification from "./Notification"
+import Notification from './Notification'
 
 const LoginForm = ({ handleLogin, username, password, handleUsername, handlePassword, message, type }) => {
   return (
@@ -7,7 +7,7 @@ const LoginForm = ({ handleLogin, username, password, handleUsername, handlePass
       <form onSubmit={handleLogin}>
         <div>
           username {}
-          <input 
+          <input
             type="text"
             value={username}
             name="Username"
@@ -16,7 +16,7 @@ const LoginForm = ({ handleLogin, username, password, handleUsername, handlePass
         </div>
         <div>
           password {}
-          <input 
+          <input
             type="password"
             value={password}
             name="Password"
@@ -26,7 +26,7 @@ const LoginForm = ({ handleLogin, username, password, handleUsername, handlePass
         <button type="submit">login</button>
       </form>
     </>
-  ) 
+  )
 }
 
 export default LoginForm

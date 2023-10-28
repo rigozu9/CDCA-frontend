@@ -1,46 +1,110 @@
-body {
-  background-color: #f7f7f7; /* Light gray background for better readability */
+/* Resetting some default styles for better consistency */
+body, h1, h2, p {
   margin: 0;
   padding: 0;
-  font-family: 'Your Preferred Font', sans-serif;
 }
+
+body {
+  background-color: #ffffff;
+  font-family: 'Your Preferred Font', sans-serif;
+  color: #333;
+  transition: background-color 0.5s; /* Smooth background color transition */
+}
+
+/* Header Styles */
+header {
+  background-color: #410d08;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+
+/* Add this to your existing CSS */
+
+/* Add this to your existing CSS */
+
+/* Add this to your existing CSS */
+
+/* Add this to your existing CSS */
 
 h1 {
-  color: #4CAF50; /* Green color for the heading */
-  font-style: italic;
-  font-family: 'Bangers', cursive;
-  animation: crazyAnimation 2s infinite alternate;
-  margin-bottom: 20px; /* Add some space below the heading */
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 36px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  animation: colorChangeAnimation 4s infinite;
 }
 
-@keyframes crazyAnimation {
-  from {
+@keyframes colorChangeAnimation {
+  0% {
     color: #4CAF50;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
   }
-  to {
+  25% {
     color: #ff00ff;
-    text-shadow: 0 0 10px #ffff00, 0 0 20px #00ff00, 0 0 30px #0000ff;
+  }
+  50% {
+    color: #00ffff;
+  }
+  75% {
+    color: #ffff00;
+  }
+  100% {
+    color: #4CAF50;
   }
 }
 
-h2 {
-  font-family: 'Raleway', sans-serif;
-  color: #ff6f61;
-  background-image: linear-gradient(to right, #43cea2, #185a9d);
+
+
+
+
+h1:hover {
+  color: #43cea2; /* Teal color on hover */
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #333;
+  color: #ffffff;
   padding: 10px;
-  border-radius: 8px;
-  animation: glowAnimation 2s infinite alternate;
-  margin-bottom: 10px; /* Add some space below the subheading */
+  text-align: center;
 }
 
-@keyframes glowAnimation {
-  from {
-    box-shadow: 0 0 10px #43cea2;
-  }
-  to {
-    box-shadow: 0 0 20px #185a9d;
-  }
+/* Main Content Styles */
+.main-content {
+  padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #ff6f61;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Links Styles */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Other Elements Styles */
+h2 {
+  font-family: 'Your Preferred Font', sans-serif;
+  font-size: 24px;
+  color: #43cea2;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+h2:hover {
+  color: #ff6f61; /* Coral color on hover */
 }
 
 .clothing-container {
@@ -50,26 +114,27 @@ h2 {
 }
 
 .clothing {
-  color: #333; /* Dark gray for clothing names */
-  font-size: 20px; /* Slightly reduce font size */
+  color: #e97f1d;
+  font-size: 18px;
 }
 
 .remove-button {
-  background-color: #ff6f61;
+  background-color: #43cea2;
   color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  &:hover {
-    background: linear-gradient(to right, #ff9a8b, #ff6f61);
-  }
+}
+
+.remove-button:hover {
+  background: linear-gradient(to right, #185a9d, #43cea2);
 }
 
 .success,
 .error {
-  background: #f2f2f2; /* Light background for success and error messages */
+  background: #f2f2f2;
   font-size: 18px;
   border-radius: 5px;
   padding: 10px;
@@ -77,9 +142,18 @@ h2 {
 }
 
 .error {
-  color: #d9534f; /* Bootstrap red color for error messages */
+  color: #d9534f;
 }
 
 .success {
-  color: #5cb85c; /* Bootstrap green color for success messages */
+  color: #5cb85c;
+}
+
+p {
+  color: #b85c9c;
+  transition: color 0.3s;
+}
+
+p:hover {
+  color: #ff6f61; /* Coral color on hover */
 }
